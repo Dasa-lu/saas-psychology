@@ -1,0 +1,78 @@
+
+* {
+    box-sizing: border-box;
+
+}
+.SideBar {
+    display: flex;
+}
+.SideBarBackground {
+    height: 100vh;
+    width: 28vh;
+    background: white;
+    border-right: #e5e7eb solid 0.2vh;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+}
+
+.SideBarImg{
+    padding-top: 0.6vh;
+    padding-bottom: 3vh;
+    width: 100%;
+}
+
+.SideBarNavElements a {
+    margin: 0.5vh;
+    display: flex ;
+    align-items: center;
+    gap: 1vh;
+    width: 100%;
+
+    padding: 1.5vh 2vh;
+    border-radius: 14px;
+
+    font-size: 3vh;
+    color: #4b5563;
+
+    cursor: pointer;
+
+    text-decoration: none;
+}
+.SideBarNavElements a:not(.active):hover {
+    background-color: #e5e7eb;
+}
+
+.SideBarNavElements > li {
+    display: flex;
+    flex-direction: column;
+}
+
+.SideBarNavElements > li + li {
+    margin-top: 0.4vh;
+}
+
+.SideBarNavElements  a.active {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    padding: 1.5vh 2vh;
+    border-radius: 14px;
+    font-size: 3vh;
+    background: linear-gradient(90deg, #2563eb, #9333ea);
+    color: white;
+    width: 90%;
+    margin-left: 5%;
+}
+.SideBarNavElements a.active .Icons {
+    color: white;
+}
+.Icons {
+    color: #2b2d30;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

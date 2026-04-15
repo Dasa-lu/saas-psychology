@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+}
+
+.appLayout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.appContent {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+}

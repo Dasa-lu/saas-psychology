@@ -78,7 +78,7 @@ export const clients: Client[] = [
         lastCheckIn: {
             mood: 4,
             anxiety: 6,
-            date: new Date(2026, 1, 24),
+            date: new Date(2026, 5, 24),
             notes: 'Náročný týden, ale dodržuje cvičení'
         },
         sessions: [],
@@ -133,11 +133,10 @@ export const clients: Client[] = [
 ];
 
 export const sessions: Session[] = [
-    // February 25, 2026
     {
         id: 's1',
         clientId: '1',
-        date: new Date(2026, 1, 25),
+        date: new Date(2026, 5, 25),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -145,7 +144,7 @@ export const sessions: Session[] = [
     {
         id: 's2',
         clientId: '3',
-        date: new Date(2026, 1, 25),
+        date: new Date(2026, 5, 25),
         startTime: '10:30',
         endTime: '11:30',
         status: 'scheduled'
@@ -153,16 +152,15 @@ export const sessions: Session[] = [
     {
         id: 's3',
         clientId: '5',
-        date: new Date(2026, 1, 25),
+        date: new Date(2026, 5, 25),
         startTime: '14:00',
         endTime: '15:00',
         status: 'scheduled'
     },
-    // February 26, 2026
     {
         id: 's4',
         clientId: '2',
-        date: new Date(2026, 1, 26),
+        date: new Date(2026, 5, 26),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -170,7 +168,7 @@ export const sessions: Session[] = [
     {
         id: 's5',
         clientId: '4',
-        date: new Date(2026, 1, 26),
+        date: new Date(2026, 5, 26),
         startTime: '11:00',
         endTime: '12:00',
         status: 'scheduled'
@@ -178,16 +176,15 @@ export const sessions: Session[] = [
     {
         id: 's6',
         clientId: '1',
-        date: new Date(2026, 1, 26),
+        date: new Date(2026, 5, 26),
         startTime: '13:00',
         endTime: '14:00',
         status: 'scheduled'
     },
-    // February 27, 2026
     {
         id: 's7',
         clientId: '3',
-        date: new Date(2026, 1, 27),
+        date: new Date(2026, 5, 27),
         startTime: '10:00',
         endTime: '11:00',
         status: 'scheduled'
@@ -195,17 +192,16 @@ export const sessions: Session[] = [
     {
         id: 's8',
         clientId: '5',
-        date: new Date(2026, 1, 27),
+        date: new Date(2026, 5, 27),
         startTime: '15:00',
         endTime: '16:00',
         status: 'scheduled'
     },
 
-    // Week of March 2–8, 2026
     {
         id: 's9',
         clientId: '2',
-        date: new Date(2026, 2, 2),
+        date: new Date(2026, 5, 2),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -213,7 +209,7 @@ export const sessions: Session[] = [
     {
         id: 's10',
         clientId: '4',
-        date: new Date(2026, 2, 2),
+        date: new Date(2026, 5, 2),
         startTime: '14:00',
         endTime: '15:00',
         status: 'scheduled'
@@ -221,7 +217,7 @@ export const sessions: Session[] = [
     {
         id: 's11',
         clientId: '1',
-        date: new Date(2026, 2, 3),
+        date: new Date(2026, 5, 3),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -229,7 +225,7 @@ export const sessions: Session[] = [
     {
         id: 's12',
         clientId: '3',
-        date: new Date(2026, 2, 3),
+        date: new Date(2026, 5, 3),
         startTime: '11:00',
         endTime: '12:00',
         status: 'scheduled'
@@ -237,17 +233,17 @@ export const sessions: Session[] = [
     {
         id: 's13',
         clientId: '5',
-        date: new Date(2026, 2, 5),
+        date: new Date(2026, 5, 5),
         startTime: '15:00',
         endTime: '16:00',
         status: 'scheduled'
     },
 
-    // Week of March 9–15, 2026
+    // Week of May 9–15, 2026
     {
         id: 's14',
         clientId: '1',
-        date: new Date(2026, 2, 9),
+        date: new Date(2026, 5, 9),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -255,7 +251,7 @@ export const sessions: Session[] = [
     {
         id: 's15',
         clientId: '2',
-        date: new Date(2026, 2, 10),
+        date: new Date(2026, 5, 10),
         startTime: '10:00',
         endTime: '11:00',
         status: 'scheduled'
@@ -263,7 +259,7 @@ export const sessions: Session[] = [
     {
         id: 's16',
         clientId: '3',
-        date: new Date(2026, 2, 11),
+        date: new Date(2026, 5, 11),
         startTime: '11:00',
         endTime: '12:00',
         status: 'scheduled'
@@ -271,17 +267,16 @@ export const sessions: Session[] = [
     {
         id: 's17',
         clientId: '5',
-        date: new Date(2026, 2, 12),
+        date: new Date(2026, 5, 12),
         startTime: '14:00',
         endTime: '15:00',
         status: 'scheduled'
     },
 
-    // Week of March 16–22, 2026
     {
         id: 's18',
         clientId: '1',
-        date: new Date(2026, 2, 16),
+        date: new Date(2026, 5, 16),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -289,7 +284,7 @@ export const sessions: Session[] = [
     {
         id: 's19',
         clientId: '4',
-        date: new Date(2026, 2, 17),
+        date: new Date(2026, 5, 17),
         startTime: '12:00',
         endTime: '13:00',
         status: 'scheduled'
@@ -297,7 +292,7 @@ export const sessions: Session[] = [
     {
         id: 's20',
         clientId: '3',
-        date: new Date(2026, 2, 18),
+        date: new Date(2026, 4, 18),
         startTime: '10:30',
         endTime: '11:30',
         status: 'scheduled'
@@ -305,17 +300,17 @@ export const sessions: Session[] = [
     {
         id: 's21',
         clientId: '5',
-        date: new Date(2026, 2, 19),
+        date: new Date(2026, 4, 19),
         startTime: '15:00',
         endTime: '16:00',
         status: 'scheduled'
     },
 
-    // Week of March 23–29, 2026
+    // Week of May 23–29, 2026
     {
         id: 's22',
         clientId: '2',
-        date: new Date(2026, 2, 23),
+        date: new Date(2026, 4, 23),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -323,7 +318,7 @@ export const sessions: Session[] = [
     {
         id: 's23',
         clientId: '1',
-        date: new Date(2026, 2, 24),
+        date: new Date(2026, 4, 24),
         startTime: '13:00',
         endTime: '14:00',
         status: 'scheduled'
@@ -331,7 +326,7 @@ export const sessions: Session[] = [
     {
         id: 's24',
         clientId: '3',
-        date: new Date(2026, 2, 25),
+        date: new Date(2026, 4, 25),
         startTime: '10:00',
         endTime: '11:00',
         status: 'scheduled'
@@ -339,17 +334,140 @@ export const sessions: Session[] = [
     {
         id: 's25',
         clientId: '5',
-        date: new Date(2026, 2, 26),
+        date: new Date(2026, 4, 26),
         startTime: '14:00',
         endTime: '15:00',
         status: 'scheduled'
     },
 
-    // Week of March 30 – April 5, 2026
+    // Week of May 5–9, 2026 (around today)
+    {
+        id: 's46',
+        clientId: '1',
+        date: new Date(2026, 4, 5),
+        startTime: '09:00',
+        endTime: '10:00',
+        status: 'completed'
+    },
+    {
+        id: 's47',
+        clientId: '2',
+        date: new Date(2026, 4, 6),
+        startTime: '10:00',
+        endTime: '11:00',
+        status: 'completed'
+    },
+    {
+        id: 's48',
+        clientId: '3',
+        date: new Date(2026, 4, 6),
+        startTime: '13:00',
+        endTime: '14:00',
+        status: 'completed'
+    },
+    {
+        id: 's49',
+        clientId: '4',
+        date: new Date(2026, 4, 7),
+        startTime: '11:00',
+        endTime: '12:00',
+        status: 'completed'
+    },
+    {
+        id: 's50',
+        clientId: '5',
+        date: new Date(2026, 4, 7),
+        startTime: '15:00',
+        endTime: '16:00',
+        status: 'completed'
+    },
+    {
+        id: 's51',
+        clientId: '1',
+        date: new Date(2026, 4, 9),
+        startTime: '09:00',
+        endTime: '10:00',
+        status: 'scheduled'
+    },
+    {
+        id: 's52',
+        clientId: '3',
+        date: new Date(2026, 4, 9),
+        startTime: '11:00',
+        endTime: '12:00',
+        status: 'scheduled'
+    },
+
+    // Week of May 12–16, 2026
+    {
+        id: 's53',
+        clientId: '2',
+        date: new Date(2026, 4, 12),
+        startTime: '09:00',
+        endTime: '10:00',
+        status: 'scheduled'
+    },
+    {
+        id: 's54',
+        clientId: '4',
+        date: new Date(2026, 4, 12),
+        startTime: '14:00',
+        endTime: '15:00',
+        status: 'scheduled'
+    },
+    {
+        id: 's55',
+        clientId: '1',
+        date: new Date(2026, 4, 13),
+        startTime: '10:00',
+        endTime: '11:00',
+        status: 'scheduled'
+    },
+    {
+        id: 's56',
+        clientId: '5',
+        date: new Date(2026, 4, 13),
+        startTime: '15:00',
+        endTime: '16:00',
+        status: 'scheduled'
+    },
+    {
+        id: 's57',
+        clientId: '3',
+        date: new Date(2026, 4, 14),
+        startTime: '11:00',
+        endTime: '12:00',
+        status: 'scheduled'
+    },
+    {
+        id: 's58',
+        clientId: '2',
+        date: new Date(2026, 4, 15),
+        startTime: '09:00',
+        endTime: '10:00',
+        status: 'scheduled'
+    },
+    {
+        id: 's59',
+        clientId: '4',
+        date: new Date(2026, 4, 16),
+        startTime: '12:00',
+        endTime: '13:00',
+        status: 'scheduled'
+    },
+    {
+        id: 's60',
+        clientId: '1',
+        date: new Date(2026, 4, 16),
+        startTime: '14:00',
+        endTime: '15:00',
+        status: 'scheduled'
+    },
+
     {
         id: 's26',
         clientId: '1',
-        date: new Date(2026, 2, 30),
+        date: new Date(2026, 4, 30),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -357,7 +475,7 @@ export const sessions: Session[] = [
     {
         id: 's27',
         clientId: '2',
-        date: new Date(2026, 2, 31),
+        date: new Date(2026, 4, 31),
         startTime: '10:00',
         endTime: '11:00',
         status: 'scheduled'
@@ -365,7 +483,7 @@ export const sessions: Session[] = [
     {
         id: 's28',
         clientId: '4',
-        date: new Date(2026, 3, 1),
+        date: new Date(2026, 5, 1),
         startTime: '11:00',
         endTime: '12:00',
         status: 'scheduled'
@@ -373,7 +491,7 @@ export const sessions: Session[] = [
     {
         id: 's29',
         clientId: '5',
-        date: new Date(2026, 3, 2),
+        date: new Date(2026, 5, 2),
         startTime: '15:00',
         endTime: '16:00',
         status: 'scheduled'
@@ -383,7 +501,7 @@ export const sessions: Session[] = [
     {
         id: 's30',
         clientId: '1',
-        date: new Date(2026, 3, 6),
+        date: new Date(2026, 5, 6),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -391,7 +509,7 @@ export const sessions: Session[] = [
     {
         id: 's31',
         clientId: '3',
-        date: new Date(2026, 3, 7),
+        date: new Date(2026, 5, 7),
         startTime: '10:30',
         endTime: '11:30',
         status: 'scheduled'
@@ -399,7 +517,7 @@ export const sessions: Session[] = [
     {
         id: 's32',
         clientId: '2',
-        date: new Date(2026, 3, 8),
+        date: new Date(2026, 5, 8),
         startTime: '13:00',
         endTime: '14:00',
         status: 'scheduled'
@@ -407,7 +525,7 @@ export const sessions: Session[] = [
     {
         id: 's33',
         clientId: '5',
-        date: new Date(2026, 3, 9),
+        date: new Date(2026, 6, 9),
         startTime: '15:00',
         endTime: '16:00',
         status: 'scheduled'
@@ -417,7 +535,7 @@ export const sessions: Session[] = [
     {
         id: 's34',
         clientId: '1',
-        date: new Date(2026, 3, 13),
+        date: new Date(2026, 6, 13),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -425,7 +543,7 @@ export const sessions: Session[] = [
     {
         id: 's35',
         clientId: '4',
-        date: new Date(2026, 3, 14),
+        date: new Date(2026, 6, 14),
         startTime: '11:00',
         endTime: '12:00',
         status: 'scheduled'
@@ -433,7 +551,7 @@ export const sessions: Session[] = [
     {
         id: 's36',
         clientId: '3',
-        date: new Date(2026, 3, 15),
+        date: new Date(2026, 6, 15),
         startTime: '10:00',
         endTime: '11:00',
         status: 'scheduled'
@@ -441,7 +559,7 @@ export const sessions: Session[] = [
     {
         id: 's37',
         clientId: '5',
-        date: new Date(2026, 3, 16),
+        date: new Date(2026, 6, 16),
         startTime: '14:00',
         endTime: '15:00',
         status: 'scheduled'
@@ -451,7 +569,7 @@ export const sessions: Session[] = [
     {
         id: 's38',
         clientId: '2',
-        date: new Date(2026, 3, 20),
+        date: new Date(2026, 6, 20),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -459,7 +577,7 @@ export const sessions: Session[] = [
     {
         id: 's39',
         clientId: '1',
-        date: new Date(2026, 3, 21),
+        date: new Date(2026, 6, 21),
         startTime: '13:00',
         endTime: '14:00',
         status: 'scheduled'
@@ -467,7 +585,7 @@ export const sessions: Session[] = [
     {
         id: 's40',
         clientId: '3',
-        date: new Date(2026, 3, 22),
+        date: new Date(2026, 6, 22),
         startTime: '10:30',
         endTime: '11:30',
         status: 'scheduled'
@@ -475,17 +593,16 @@ export const sessions: Session[] = [
     {
         id: 's41',
         clientId: '5',
-        date: new Date(2026, 3, 23),
+        date: new Date(2026, 6, 23),
         startTime: '15:00',
         endTime: '16:00',
         status: 'scheduled'
     },
 
-    // Week of April 27 – May 3, 2026
     {
         id: 's42',
         clientId: '1',
-        date: new Date(2026, 3, 27),
+        date: new Date(2026, 6, 27),
         startTime: '09:00',
         endTime: '10:00',
         status: 'scheduled'
@@ -493,7 +610,7 @@ export const sessions: Session[] = [
     {
         id: 's43',
         clientId: '2',
-        date: new Date(2026, 3, 28),
+        date: new Date(2026, 6, 28),
         startTime: '10:00',
         endTime: '11:00',
         status: 'scheduled'
@@ -501,7 +618,7 @@ export const sessions: Session[] = [
     {
         id: 's44',
         clientId: '4',
-        date: new Date(2026, 3, 29),
+        date: new Date(2026, 6, 29),
         startTime: '11:00',
         endTime: '12:00',
         status: 'scheduled'
@@ -509,33 +626,9 @@ export const sessions: Session[] = [
     {
         id: 's45',
         clientId: '5',
-        date: new Date(2026, 3, 30),
+        date: new Date(2026, 6, 30),
         startTime: '14:00',
         endTime: '15:00',
         status: 'scheduled'
     }
 ];
-
-
-// export function getClientById(id: string): Client | undefined {
-//     return clients.find(client => client.id === id);
-// }
-//
-// export function getSessionsForDate(date: Date): Session[] {
-//     return sessions.filter(session =>
-//         session.date.getDate() === date.getDate() &&
-//         session.date.getMonth() === date.getMonth() &&
-//         session.date.getFullYear() === date.getFullYear()
-//     );
-// }
-//
-// export function getClientsForDate(date: Date): Client[] {
-//     const dateSessions = getSessionsForDate(date);
-//     return dateSessions.map(session =>
-//         clients.find(client => client.id === session.clientId)
-//     ).filter(Boolean) as Client[];
-// }
-//
-// export function getDatesWithSessions(): Date[] {
-//     return sessions.map(session => session.date);
-// }

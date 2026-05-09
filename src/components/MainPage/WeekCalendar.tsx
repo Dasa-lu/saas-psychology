@@ -7,12 +7,14 @@ import {
     isSameDay,
     addWeeks,
     subWeeks,
+    parseISO,
+    isValid,
 } from "date-fns";
 import { cs } from "date-fns/locale";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./helpers/Button";
-import { clients, sessions as initialSessions } from "../data/mockData";
 import type { Session } from "../data/mockData";
+import { useData } from "../../context/DataContext";
 import { getColorClasses } from "../utils/helpers";
 import "./WeekCalendar.css";
 import ClientModal from "./ClientModal.tsx";
@@ -21,15 +23,45 @@ interface WeekCalendarProps {
     onSelectDate?: (date: Date) => void;
 }
 
+function getDateFromUrl(): Date {
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get('week');
+    if (raw) {
+        const parsed = parseISO(raw);
+        if (isValid(parsed)) return parsed;
+    }
+    return new Date();
+}
+
+function pushWeekToHistory(date: Date) {
+    const monday = startOfWeek(date, { weekStartsOn: 1 });
+    const iso = format(monday, 'yyyy-MM-dd');
+    const url = `${window.location.pathname}?week=${iso}`;
+    window.history.pushState({ week: iso }, '', url);
+}
+
 export function WeekCalendar({ onSelectDate }: WeekCalendarProps) {
     const navigate = useNavigate();
-    const [sessionList, setSessionList] = useState<Session[]>(initialSessions);
+    const { sessions: sessionList, clients: contextClients, updateSession } = useData();
     const [selectedSession, setSelectedSession] = useState<Session | null>(null);
-    const [currentDate, setCurrentDate] = useState<Date>(new Date());
+    const [currentDate, setCurrentDate] = useState<Date>(getDateFromUrl);
     const [draggingId, setDraggingId] = useState<string | null>(null);
-    const [dragOverCell, setDragOverCell] = useState<string | null>(null); // `${day.toISOString()}-${time}`
+    const [dragOverCell, setDragOverCell] = useState<string | null>(null);
 
     const today = new Date();
+
+    useEffect(() => {
+        const handlePopState = (e: PopStateEvent) => {
+            if (e.state && typeof e.state.week === 'string') {
+                const parsed = parseISO(e.state.week);
+                if (isValid(parsed)) setCurrentDate(parsed);
+            } else {
+                setCurrentDate(getDateFromUrl());
+            }
+        };
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
 
     const handleDayClick = (day: Date) => {
         setCurrentDate(day);
@@ -44,8 +76,16 @@ export function WeekCalendar({ onSelectDate }: WeekCalendarProps) {
         return `${hour.toString().padStart(2, "0")}:00`;
     });
 
-    const goToPreviousWeek = () => setCurrentDate(subWeeks(currentDate, 1));
-    const goToNextWeek = () => setCurrentDate(addWeeks(currentDate, 1));
+    const goToPreviousWeek = () => {
+        const prev = subWeeks(currentDate, 1);
+        setCurrentDate(prev);
+        pushWeekToHistory(prev);
+    };
+    const goToNextWeek = () => {
+        const next = addWeeks(currentDate, 1);
+        setCurrentDate(next);
+        pushWeekToHistory(next);
+    };
 
     const getSessionsForDay = (day: Date): Session[] =>
         sessionList.filter(s =>
@@ -104,20 +144,11 @@ export function WeekCalendar({ onSelectDate }: WeekCalendarProps) {
 
         const newDate = new Date(day);
 
-        setSessionList(prev =>
-            prev.map(s =>
-                s.id === sessionId
-                    ? { ...s, date: newDate, startTime: newStartTime, endTime: newEndTime }
-                    : s
-            )
-        );
+        const updated = { ...session, date: newDate, startTime: newStartTime, endTime: newEndTime };
+        updateSession(updated);
 
         // Update selectedSession if it's the one being moved
-        setSelectedSession(prev =>
-            prev?.id === sessionId
-                ? { ...prev, date: newDate, startTime: newStartTime, endTime: newEndTime }
-                : prev
-        );
+        setSelectedSession((prev: Session | null) => prev?.id === sessionId ? updated : prev);
 
         setDraggingId(null);
         setDragOverCell(null);
@@ -159,7 +190,7 @@ export function WeekCalendar({ onSelectDate }: WeekCalendarProps) {
     };
 
     const selectedClient = selectedSession
-        ? clients.find(c => c.id === selectedSession.clientId) ?? null
+        ? contextClients.find(c => c.id === selectedSession.clientId) ?? null
         : null;
 
     const weekEnd = addDays(weekStart, 6);
@@ -239,7 +270,7 @@ export function WeekCalendar({ onSelectDate }: WeekCalendarProps) {
                                     return (
                                         <div key={day.toISOString()} className="week-calendar__sessions-column">
                                             {daySessions.map((session) => {
-                                                const client = clients.find(c => c.id === session.clientId);
+                                                const client = contextClients.find(c => c.id === session.clientId);
                                                 if (!client) return null;
                                                 const style = getSessionStyle(session);
                                                 const colors = getColorClasses(client.color);

@@ -38,6 +38,17 @@
     gap: 1.8vh;
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .ClientCard {
     background: #ffffff;
     border: 1px solid #e5e7eb;
@@ -45,11 +56,12 @@
     cursor: pointer;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
     overflow: hidden;
+    animation: fadeInUp 0.35s ease both;
 }
 
 .ClientCard:hover {
     box-shadow: 0 1vh 2.5vh rgba(15, 23, 42, 0.14);
-    transform: translateY(-0.2vh);
+    transform: perspective(600px) translateY(-0.2vh) rotateX(1.5deg);
 }
 
 .ClientCard__header {
@@ -257,4 +269,35 @@
     font-size: 2.2vh;
     font-weight: 700;
     color: #111827;
+}
+
+.ClientsList__add-btn {
+    margin-top: 1.2vh;
+    padding: 0.8vh 1.6vh;
+    background: #6366f1;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.8vh;
+    font-size: 2vh;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.ClientsList__add-btn:hover {
+    background: #4f46e5;
+}
+
+.ClientCard:has(.ClientCard__badge.bg-orange-100) {
+    border-color: #fed7aa;
+}
+
+@media (max-width: 640px) {
+    .ClientsList__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ClientsList__header {
+        padding: 1.5vh;
+    }
 }

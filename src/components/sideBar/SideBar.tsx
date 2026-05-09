@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 
 export default function SideBar() {
     return (
-        <div className="SideBar">
+        <nav className="SideBar" aria-label="Hlavní navigace">
             <div className="SideBarBackground">
-                <img className="SideBarImg" src={logo} alt="logo" />
+                <img className="SideBarImg" src={logo} alt="PsychApp logo" />
 
                 <ul className="SideBarNavElements">
                     {NavItems.map((item) => (
@@ -23,6 +23,6 @@ export default function SideBar() {
                     ))}
                 </ul>
             </div>
-        </div>
+        </nav>
     )
 }

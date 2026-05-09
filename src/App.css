@@ -13,3 +13,74 @@ body {
     height: 100vh;
     overflow-y: auto;
 }
+
+@media (max-width: 768px) {
+    .appLayout {
+        flex-direction: column;
+    }
+
+    .appContent {
+        height: calc(100vh - 60px);
+    }
+}
+
+.RelaxationPlayer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 8px 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    z-index: 100;
+    font-size: 13px;
+}
+
+.RelaxationPlayer__label {
+    color: #6b7280;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.RelaxationPlayer__select {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 3px 6px;
+    font-size: 12px;
+    color: #374151;
+    background: #f9fafb;
+    cursor: pointer;
+}
+
+.RelaxationPlayer__select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.RelaxationPlayer__btn {
+    border: none;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #6366f1;
+    color: white;
+    transition: background 0.15s;
+}
+
+.RelaxationPlayer__btn:hover {
+    background: #4f46e5;
+}
+
+.RelaxationPlayer__btn--active {
+    background: #ef4444;
+}
+
+.RelaxationPlayer__btn--active:hover {
+    background: #dc2626;
+}

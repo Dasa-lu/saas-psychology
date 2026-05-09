@@ -1,19 +1,26 @@
 import { useNavigate } from 'react-router';
-import { clients } from '../data/mockData';
+import { useData } from '../../context/DataContext';
 import ClientCard from './ClientCard';
 import './ClientCard.css';
 
 export default function ClientList() {
     const navigate = useNavigate();
+    const { clients } = useData();
 
     return (
-        <div className="ClientsList">
-            <div className="ClientsList__header">
-                <h2 className="ClientsList__title">Klienti</h2>
+        <main className="ClientsList">
+            <header className="ClientsList__header">
+                <h1 className="ClientsList__title">Klienti</h1>
                 <p className="ClientsList__subtitle">Celkem {clients.length} klientů</p>
-            </div>
+                <button
+                    className="ClientsList__add-btn"
+                    onClick={() => navigate('/clients/new')}
+                >
+                    + Přidat klienta
+                </button>
+            </header>
 
-            <div className="ClientsList__scroll">
+            <section className="ClientsList__scroll" aria-label="Seznam klientů">
                 <div className="ClientsList__grid">
                     {clients.map((client) => (
                         <ClientCard
@@ -23,7 +30,7 @@ export default function ClientList() {
                         />
                     ))}
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }

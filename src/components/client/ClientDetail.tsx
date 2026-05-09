@@ -2,9 +2,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import { cs } from 'date-fns/locale';
 import { ArrowLeft, Mail, Phone, ClipboardList, BookOpen, Calendar } from 'lucide-react';
-import { getClientById } from '../data/clientsHelperFunctions';
-import { sessions } from '../data/mockData';
+import { useData } from '../../context/DataContext';
 import { getInitials, getColorClasses, getStatusBadgeClasses, getStatusLabel } from '../utils/helpers';
+import { MoodChart } from '../MoodChart';
 import './ClientDetail.css';
 
 const getMoodColor = (mood: number) => {
@@ -38,7 +38,8 @@ const getSessionStatusClass = (status: 'scheduled' | 'completed' | 'cancelled') 
 export default function ClientDetail() {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const client = getClientById(id ?? '');
+    const { clients, sessions } = useData();
+    const client = clients.find(c => c.id === (id ?? ''));
 
     if (!client) {
         return (
@@ -60,13 +61,13 @@ export default function ClientDetail() {
         .sort((a, b) => a.date.getTime() - b.date.getTime());
 
     return (
-        <div className="ClientDetail">
-            <div className="ClientDetail__topbar">
+        <main className="ClientDetail">
+            <header className="ClientDetail__topbar">
                 <button className="ClientDetail__back-btn" onClick={() => navigate('/clients')}>
                     <ArrowLeft className="ClientDetail__back-icon" />
                     Zpět na klienty
                 </button>
-            </div>
+            </header>
 
             <div className="ClientDetail__scroll">
                 {/* Header */}
@@ -85,7 +86,7 @@ export default function ClientDetail() {
                     </span>
                 </div>
 
-                <div className="ClientDetail__body">
+                <article className="ClientDetail__body">
                     {/* Contact */}
                     {client.contactInfo && (
                         <div className="ClientDetail__section">
@@ -136,16 +137,19 @@ export default function ClientDetail() {
                                     <span className="ClientDetail__stat-name">Nálada</span>
                                     <div className="ClientDetail__stat-dot" style={{ background: getMoodColor(client.lastCheckIn.mood) }} />
                                 </div>
-                                <div className="ClientDetail__stat-value">{client.lastCheckIn.mood}/10</div>
+                                {/* @ts-ignore custom element */}
+                                <mood-badge value={client.lastCheckIn.mood} type="mood" />
                             </div>
                             <div className="ClientDetail__stat-box ClientDetail__stat-box--anxiety">
                                 <div className="ClientDetail__stat-row">
                                     <span className="ClientDetail__stat-name">Úzkost</span>
                                     <div className="ClientDetail__stat-dot" style={{ background: getAnxietyColor(client.lastCheckIn.anxiety) }} />
                                 </div>
-                                <div className="ClientDetail__stat-value">{client.lastCheckIn.anxiety}/10</div>
+                                {/* @ts-ignore custom element */}
+                                <mood-badge value={client.lastCheckIn.anxiety} type="anxiety" />
                             </div>
                         </div>
+                        <MoodChart mood={client.lastCheckIn.mood} anxiety={client.lastCheckIn.anxiety} />
                         {client.lastCheckIn.notes && (
                             <p className="ClientDetail__checkin-notes">{client.lastCheckIn.notes}</p>
                         )}
@@ -179,8 +183,8 @@ export default function ClientDetail() {
                             </div>
                         )}
                     </div>
-                </div>
+                </article>
             </div>
-        </div>
+        </main>
     );
 }

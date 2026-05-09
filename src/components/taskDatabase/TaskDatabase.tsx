@@ -37,9 +37,9 @@ export default function TaskDatabase() {
     }
 
     return (
-        <div className="TaskDatabase">
-            <div className="TaskDatabase__header">
-                <h2 className="TaskDatabase__title">Databáze úkolů</h2>
+        <main className="TaskDatabase">
+            <header className="TaskDatabase__header">
+                <h1 className="TaskDatabase__title">Databáze úkolů</h1>
                 <div className="TaskDatabase__tabs">
                     <button
                         className={`TaskDatabase__tab ${activeTab === 'homeworks' ? 'TaskDatabase__tab--active' : ''}`}
@@ -56,9 +56,9 @@ export default function TaskDatabase() {
                         <span className="TaskDatabase__tab-count">{resourceLinks.length}</span>
                     </button>
                 </div>
-            </div>
+            </header>
 
-            <div className="TaskDatabase__scroll">
+            <section className="TaskDatabase__scroll" aria-label="Obsah databáze">
                 {activeTab === 'homeworks' && (
                     <div className="TaskDatabase__list">
                         {homeworks.map(hw => {
@@ -197,7 +197,7 @@ export default function TaskDatabase() {
                         })}
                     </div>
                 )}
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }

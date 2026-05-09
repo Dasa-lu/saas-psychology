@@ -9,7 +9,7 @@ export const NavItems: {
     path: string;
     end: boolean;
 }[] = [
-    { id: 1, icon: <FaRegCalendar  className="Icons"/>, title: "Home", path: "/", end: true},
-    { id: 2, icon: <LuUsers className="Icons" />, title: "Clients", path: "/clients", end: true},
-    { id: 3, icon: <GoDatabase className="Icons"/>, title: "TaskDatabase", path: "/tasksDatabase", end: true},
+    { id: 1, icon: <FaRegCalendar  className="Icons"/>, title: "Kalendař", path: "/", end: true},
+    { id: 2, icon: <LuUsers className="Icons" />, title: "Klienti", path: "/clients", end: true},
+    { id: 3, icon: <GoDatabase className="Icons"/>, title: "Databaze úkolu", path: "/tasksDatabase", end: true},
 ];

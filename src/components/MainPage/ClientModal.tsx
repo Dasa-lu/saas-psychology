@@ -4,6 +4,7 @@ import type {ReactNode} from "react";
 import {Button} from "./helpers/Button.tsx";
 import type {Client, Session} from "../data/mockData";
 import {LuClipboardList, LuClock3, LuFileText} from "react-icons/lu";
+import {getSessionLabel} from "../../oop/psychSession";
 
 
 type ClientModalProps = {
@@ -32,8 +33,9 @@ export default function ClientModal({isOpen, onClose, onNavigateToClient, sessio
 
                 <div className="client-modal__header">
                     <div className="client-modal__header-info">
-                        <p className="client-modal__label">Detail klienta</p>
-                        <h2 className="client-modal__title">{client.name}</h2>
+                        <p className="client-modal__label">
+                            {getSessionLabel(client.name, session.date.toLocaleDateString('cs-CZ'))}
+                        </p>
                     </div>
 
                     <div className="client-modal__time-pill">
